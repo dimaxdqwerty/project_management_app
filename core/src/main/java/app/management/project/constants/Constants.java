@@ -5,12 +5,16 @@ public class Constants {
     public static final String SHORT_DESCRIPTION = "shortDescription";
     public static final String TYPE = "type";
     public static final String RESOURCE_PATH = "resourcePath";
+    public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
+    public static final String EMAIL = "email";
 
     public static final String ASSET_SHARE_COMMONS_PAGE = "asset-share-commons/components/structure/page";
     public static final String ASSET_SHARE_COMMONS_EMPTY_TEMPLATE_DARK =
             "/conf/asset-share-commons/settings/wcm/templates/empty-template-dark";
 
     public static final String CONTENT_TICKET_STORAGE = "/content/project_management_app/home/ticket-storage";
+    public static final String CONTENT_HOME = "/content/project_management_app/home";
 
     public static final String CQ_PAGE = "cq:Page";
     public static final String CQ_PAGE_CONTENT = "cq:PageContent";

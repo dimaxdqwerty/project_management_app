@@ -1,16 +1,16 @@
 <twoForms>
     <div class="login-page">
         <div class="form">
-            <form class="register-form">
-                <input placeholder="username"/>
-                <input placeholder="password"/>
-                <input placeholder="email"/>
-                <button>create</button>
+            <form class="register-form" method="post" action="/bin/register">
+                <input name="username" type="text" placeholder="username" required/>
+                <input name="password" type="text" placeholder="password" required/>
+                <input name="email" type="text" placeholder="email" required/>
+                <button>Create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form">
-                <input placeholder="username"/>
-                <input placeholder="password"/>
+            <form class="login-form" method="post" action="/bin/login">
+                <input name="username" type="text" placeholder="username" required/>
+                <input name="password" type="text" placeholder="password" required/>
                 <button>login</button>
                 <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>

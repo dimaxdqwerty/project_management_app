@@ -35,18 +35,6 @@ tickets .container .card {
   transition: 0.5s;
 }
 
-tickets .container .card:nth-child(1) .box .content a {
-  background: #2196f3;
-}
-
-tickets .container .card:nth-child(2) .box .content a {
-  background: #e91e63;
-}
-
-tickets .container .card:nth-child(3) .box .content a {
-  background: #23c186;
-}
-
 tickets .container .card .box {
   position: absolute;
   top: 20px;
