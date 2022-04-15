@@ -1,0 +1,25 @@
+<div data-sly-use.model="app.management.project.models.TicketInfoModel"></div>
+
+<h1 style="text-align: center">Tickets</h1>
+<tickets>
+    <div class="container" data-sly-list.item="${model.pagesList}">
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <h2>${item.title}</h2>
+                    <h3>${item.properties.type}</h3>
+                    <p>${item.properties.shortDescription}</p>
+                    <a href="${item.path}.html">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</tickets>
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Ticket Container"></div>
+<button class="showMore" id="showMore">
+    <p>Show more</p>
+</button>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='ticket-container.main'}" />
+</sly>

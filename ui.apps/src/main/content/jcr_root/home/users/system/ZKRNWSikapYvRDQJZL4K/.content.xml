@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:SystemUser"
+    jcr:uuid="fbeb12f2-7724-351b-8dce-1148652e39e7"
+    rep:authorizableId="ticket-service"
+    rep:principalName="ticket-service"/>

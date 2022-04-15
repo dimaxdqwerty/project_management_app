@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2022-04-08T17:04:00.134+03:00"
+    jcr:createdBy="admin"
+    jcr:description="ACL Package initially defined by a ACS AEM Commons - ACL Packager configuration."
+    jcr:lastModified="{Date}2022-04-08T17:04:00.134+03:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    acHandling="overwrite"
+    buildCount="3"
+    builtWith="Adobe Experience Manager-6.5.0"
+    fixedBugs=""
+    group="ACLs"
+    lastUnwrapped="{Date}2022-04-08T17:04:00.134+03:00"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2022-04-08T17:04:00.134+03:00"
+    lastWrappedBy="admin"
+    name="acls"
+    providerLink=""
+    providerName=""
+    providerUrl=""
+    testedWith=""
+    version="1.0.0">
+    <thumbnail.png/>
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/home"
+            rules="[exclude:/home/users/.*/.tokens]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/rep:policy"
+            rules="[]"/>
+    </filter>
+    <screenshots jcr:primaryType="nt:unstructured"/>
+</jcr:root>

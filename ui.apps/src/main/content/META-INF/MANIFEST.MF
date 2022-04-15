@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Content-Package-Roots: /home,/etc/rep:policy
+Content-Package-Type: content
+Content-Package-Id: ACLs:acls:1.0.0
+Content-Package-Description: ACL Package initially defined by a ACS AE
+ M Commons - ACL Packager configuration.
+

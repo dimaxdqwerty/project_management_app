@@ -1,0 +1,22 @@
+<twoForms>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input placeholder="username"/>
+                <input placeholder="password"/>
+                <input placeholder="email"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <input placeholder="username"/>
+                <input placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+</twoForms>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='registration-form.main'}" />
+</sly>

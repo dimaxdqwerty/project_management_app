@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/project_management_app" mode="merge"/>
+    <filter root="/content/project_management_app" mode="merge"/>
+    <filter root="/content/dam/project_management_app" mode="merge"/>
+    <filter root="/content/experience-fragments/project_management_app" mode="merge"/>
+</workspaceFilter>

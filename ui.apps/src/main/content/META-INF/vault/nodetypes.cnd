@@ -1,0 +1,27 @@
+<'rep'='internal'>
+<'sling'='http://sling.apache.org/jcr/sling/1.0'>
+<'nt'='http://www.jcp.org/jcr/nt/1.0'>
+<'granite'='http://www.adobe.com/jcr/granite/1.0'>
+
+[rep:Members]
+  orderable
+  - * (weakreference) protected < 'rep:Authorizable'
+  + * (rep:Members) = rep:Members protected multiple
+
+[rep:Password]
+  - * (undefined) protected
+  - * (undefined) protected multiple
+
+[rep:RepoAccessControllable]
+  mixin
+  + rep:repoPolicy (rep:Policy) protected ignore
+
+[sling:Folder] > nt:folder
+  - * (undefined) multiple
+  - * (undefined)
+  + * (nt:base) = sling:Folder version
+
+[granite:Ranking]
+  mixin
+  - granite:ranking (long)
+
