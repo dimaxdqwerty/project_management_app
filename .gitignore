@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/eclipse,java,maven
 
+core/src/main/java/resources/smtp.json
+
 ### Eclipse ###
 *.pydevproject
 .metadata
@@ -76,7 +78,6 @@ buildNumber.properties
 ### IntelliJ ###
 .idea/
 *.iml
-
 
 ### Node.js ###
 

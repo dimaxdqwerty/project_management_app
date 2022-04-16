@@ -27,4 +27,9 @@ public class Constants {
     public static final String COLON = ":";
     public static final String COLON_WITH_TWO_SLASHES = "://";
     public static final String HTML = ".html";
+
+    public static class SmtpMessage {
+        public static final String FROM_ADDRESS = "from@gmail.com";
+        public static final String MESSAGE_TYPE = "text/html; charset=utf-8";
+    }
 }
