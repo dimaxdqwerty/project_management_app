@@ -84,6 +84,7 @@
     <about/>
     <create-ticket/>
     <ticket-storage/>
+    <error/>
     <registration/>
-    <log-in/>
+    <login/>
 </jcr:root>

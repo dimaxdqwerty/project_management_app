@@ -3,7 +3,9 @@
 <sly data-sly-test.serverport="${request.serverPort}"/>
 
 <div>
-    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/registration.html">Registration</a>
+    <h1>${currentSession.attributeNames}</h1>
+    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/registration.html">Sign Up</a>
+    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/login.html">Sign In</a>
 </div>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">

@@ -1,0 +1,26 @@
+<sly data-sly-test.scheme="${request.scheme}"/>
+<sly data-sly-test.servername="${request.serverName}"/>
+<sly data-sly-test.serverport="${request.serverPort}"/>
+
+
+<customForm>
+    <div class="login-page">
+        <div class="form">
+            <p>Sign Up</p>
+            <form class="login-form" method="post" action="/bin/register">
+                <input name="username" type="text" placeholder="username" required/>
+                <input name="password" type="text" placeholder="password" required/>
+                <button>Create</button>
+                <p class="message">
+                    Already registered?
+                    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/login.html">
+                        Sign In
+                    </a>
+                </p>
+            </form>
+        </div>
+    </div>
+</customForm>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='registration-form.main'}" />
+</sly>

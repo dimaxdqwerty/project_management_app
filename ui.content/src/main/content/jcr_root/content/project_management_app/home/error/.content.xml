@@ -2,13 +2,13 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-04-17T16:02:50.622+03:00"
+        cq:lastModified="{Date}2022-04-17T14:21:12.924+03:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/asset-share-commons/settings/wcm/templates/content-rail-template-dark"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Registration"
+        jcr:title="Error"
         sling:resourceType="asset-share-commons/components/structure/page"
-        pageTitle="Registration">
+        pageTitle="Error">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="asset-share-commons/components/structure/root">
@@ -23,20 +23,13 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/foundation/components/responsivegrid">
-                    <registration_and_log
-                        jcr:created="{Date}2022-04-17T15:53:06.957+03:00"
+                    <error_container
+                        jcr:created="{Date}2022-04-17T14:21:12.918+03:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2022-04-17T15:53:06.957+03:00"
+                        jcr:lastModified="{Date}2022-04-17T14:21:12.918+03:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="project_management_app/components/structure/registration-and-login-form"/>
-                    <registration_form
-                        jcr:created="{Date}2022-04-17T16:02:50.620+03:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2022-04-17T16:02:50.620+03:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="project_management_app/components/structure/registration-form"/>
+                        sling:resourceType="project_management_app/components/structure/error-container"/>
                 </responsivegrid>
                 <header
                     jcr:created="{Date}2017-10-17T12:43:54.861-04:00"
