@@ -47,7 +47,7 @@ public class RegisterServlet extends SlingAllMethodsServlet {
         response.sendRedirect(linkToRedirect + CONTENT_HOME + HTML);
     }
 
-    public void addCookie(final SlingHttpServletResponse response, User user) {
+    public void addCookie(SlingHttpServletResponse response, User user) {
         Cookie cookie = new Cookie(USER_COOKIE, user.getUsername());
 
         //24h

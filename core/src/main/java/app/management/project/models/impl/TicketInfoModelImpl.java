@@ -23,8 +23,6 @@ public class TicketInfoModelImpl implements TicketInfoModel {
     }
 
     @PostConstruct
-    protected void init() {
-
-    }
+    protected void init() {}
 
 }

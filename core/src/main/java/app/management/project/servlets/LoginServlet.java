@@ -9,15 +9,16 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.osgi.service.component.annotations.Component;
 import javax.servlet.Servlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
 import static app.management.project.constants.Constants.*;
 
-@Component(service = Servlet.class, immediate = true)
+@Component(service = Servlet.class)
 @SlingServletPaths(
-        value = {"/bin/login"}
+        value = {"/bin/signin"}
 )
 public class LoginServlet extends SlingAllMethodsServlet {
 
@@ -37,12 +38,21 @@ public class LoginServlet extends SlingAllMethodsServlet {
 
             session.setAttribute(USER, user);
             session.setAttribute(USERNAME, user.getUsername());
+
+            addCookie(response, user);
         } catch (ValidationException e) {
             response.sendRedirect(linkToRedirect + CONTENT_ERROR + HTML + QUESTION_MARK + ERROR_PARAM + e.getMessage());
         }
+        response.sendRedirect(linkToRedirect + CONTENT_HOME + HTML);
     }
 
-    @Override
-    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {}
+    public void addCookie(final SlingHttpServletResponse response, User user) {
+        Cookie cookie = new Cookie(USER_COOKIE, user.getUsername());
+
+        //24h
+        cookie.setMaxAge(86400);
+
+        response.addCookie(cookie);
+    }
 
 }
