@@ -1,11 +1,10 @@
-<sly data-sly-use.model="${'app.management.project.models.impl.CookieUserModelImpl'}"></sly>
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
 
 <sly data-sly-test.scheme="${request.scheme}"/>
 <sly data-sly-test.servername="${request.serverName}"/>
 <sly data-sly-test.serverport="${request.serverPort}"/>
 
 <div>
-    <h1>${model.string}</h1>
     <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/registration.html">Sign Up</a>
     <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/login.html">Sign In</a>
 </div>
