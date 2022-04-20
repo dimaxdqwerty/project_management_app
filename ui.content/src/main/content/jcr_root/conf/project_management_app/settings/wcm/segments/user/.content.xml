@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-04-20T15:21:44.261+03:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="User"
+        sling:resourceType="cq/contexthub/components/segment-page"
+        segmentBoost="{Long}0"
+        segmentName="user">
+        <traits
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cq/contexthub/components/traits/logic/operator-and">
+            <andpar
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys">
+                <property_value
+                    jcr:created="{Date}2022-04-20T15:21:44.259+03:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2022-04-20T15:21:44.259+03:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/contexthub/components/traits/generic-comparison/variants/property-value"
+                    dataType="\0"
+                    operator="\0">
+                    <left
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/contexthub/components/traits/generic-comparison/type/property"/>
+                    <right
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/contexthub/components/traits/generic-comparison/type/value"/>
+                </property_value>
+            </andpar>
+        </traits>
+    </jcr:content>
+</jcr:root>

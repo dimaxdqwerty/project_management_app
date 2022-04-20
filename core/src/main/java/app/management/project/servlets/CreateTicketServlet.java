@@ -38,7 +38,7 @@ public class CreateTicketServlet extends SlingAllMethodsServlet {
 
             Ticket ticket = new Ticket(ticketName, shortDescription, type);
 
-            createPageNode(resourceResolver, ticket);
+            createTicketPageNode(resourceResolver, ticket);
 
             final String pagePath = request.getParameter(RESOURCE_PATH);
             final String linkToRedirect = request.getScheme() + COLON_WITH_TWO_SLASHES + request.getServerName()
@@ -50,17 +50,17 @@ public class CreateTicketServlet extends SlingAllMethodsServlet {
         }
     }
 
-    private void createPageNode(ResourceResolver resourceResolver, Ticket ticket) throws PersistenceException, RepositoryException {
+    private void createTicketPageNode(ResourceResolver resourceResolver, Ticket ticket) throws PersistenceException, RepositoryException {
         Resource resource = resourceResolver.getResource(CONTENT_TICKET_STORAGE);
         Node node = resource.adaptTo(Node.class);
-            Node ticketPageNode = node.addNode(ticket.getTicketName(), CQ_PAGE);
+        Node ticketPageNode = node.addNode(ticket.getTicketName(), CQ_PAGE);
 
-        createJcrContentUnderPageNode(resourceResolver, ticketPageNode, ticket);
+        createJcrContentUnderTicketPageNode(resourceResolver, ticketPageNode, ticket);
 
         resourceResolver.commit();
     }
 
-    private void createJcrContentUnderPageNode(ResourceResolver resourceResolver, Node node, Ticket ticket) throws RepositoryException, PersistenceException {
+    private void createJcrContentUnderTicketPageNode(ResourceResolver resourceResolver, Node node, Ticket ticket) throws RepositoryException, PersistenceException {
         Node jcrContentUnderPageNode = node.addNode(JCR_CONTENT, CQ_PAGE_CONTENT);
 
         jcrContentUnderPageNode.setProperty(SLING_RESOURCE_TYPE, ASSET_SHARE_COMMONS_PAGE);
