@@ -15,6 +15,8 @@ public class Constants {
             "/conf/asset-share-commons/settings/wcm/templates/empty-template-dark";
 
     public static final String CONTENT_TICKET_STORAGE = "/content/project_management_app/home/ticket-storage";
+    public static final String CONTENT_USER = "/content/project_management_app/user";
+    public static final String CONTENT_USER_JCR = "/content/project_management_app/user/jcr:content";
     public static final String CONTENT_USER_PROFILE = "/content/project_management_app/home/user-profile";
     public static final String CONTENT_HOME = "/content/project_management_app/home";
     public static final String CONTENT_PROJECT_MANAGEMENT_APP = "/content/project_management_app";

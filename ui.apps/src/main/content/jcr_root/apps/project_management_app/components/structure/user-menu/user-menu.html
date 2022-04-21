@@ -2,9 +2,17 @@
 <sly data-sly-test.servername="${request.serverName}"/>
 <sly data-sly-test.serverport="${request.serverPort}"/>
 
-<div>
-    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/registration.html">Sign Up</a>
-    <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/login.html">Sign In</a>
+<div data-sly-use.model="app.management.project.models.UserInfoModel"></div>
+
+<div class="user-menu-container">
+    <div data-sly-test.isRegistered="${model.username}">
+        <p>User: ${model.username}</p>
+        <a href="${scheme}://${servername}:${serverport}/bin/logout">Log Out</a>
+    </div>
+    <div data-sly-test="${!isRegistered}">
+        <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/registration.html">Sign Up</a>
+        <a href="${scheme}://${servername}:${serverport}/content/project_management_app/home/login.html">Sign In</a>
+    </div>
 </div>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">

@@ -8,8 +8,8 @@
         <div class="form">
             <p>Sign Up</p>
             <form class="login-form" method="post" action="/bin/register">
-                <input name="username" type="text" placeholder="username" required/>
-                <input name="password" type="text" placeholder="password" required/>
+                <input name="username" type="text" placeholder="username" minlength="3" maxlength="15" required/>
+                <input name="password" type="password" placeholder="password" minlength="6" maxlength="18" required/>
                 <button>Create</button>
                 <p class="message">
                     Already registered?
