@@ -1,5 +1,7 @@
 package app.management.project.constants;
 
+import app.management.project.utils.HWIDUtil;
+
 public class Constants {
     public static final String TICKET_NAME = "ticketName";
     public static final String SHORT_DESCRIPTION = "shortDescription";
@@ -7,22 +9,19 @@ public class Constants {
     public static final String RESOURCE_PATH = "resourcePath";
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
-    public static final String USER = "user";
-    public static final String USER_COOKIE = "userCookie";
+    public static final String USER = "user-" + HWIDUtil.getHWID();
 
     public static final String ASSET_SHARE_COMMONS_PAGE = "asset-share-commons/components/structure/page";
     public static final String ASSET_SHARE_COMMONS_EMPTY_TEMPLATE_DARK =
             "/conf/asset-share-commons/settings/wcm/templates/empty-template-dark";
 
     public static final String CONTENT_TICKET_STORAGE = "/content/project_management_app/home/ticket-storage";
-    public static final String CONTENT_USER = "/content/project_management_app/user";
-    public static final String CONTENT_USER_JCR = "/content/project_management_app/user/jcr:content";
-    public static final String CONTENT_USER_PROFILE = "/content/project_management_app/home/user-profile";
+    public static final String CONTENT_USER = "/content/project_management_app/home/user-profile/user-" + HWIDUtil.getHWID();
+    public static final String CONTENT_USER_JCR = "/content/project_management_app/home/user-profile/user-" + HWIDUtil.getHWID() + "/jcr:content";
     public static final String CONTENT_HOME = "/content/project_management_app/home";
-    public static final String CONTENT_PROJECT_MANAGEMENT_APP = "/content/project_management_app";
+    public static final String CONTENT_PROJECT_MANAGEMENT_APP = "/content/project_management_app/home/user-profile";
     public static final String CONTENT_ERROR = CONTENT_HOME + "/error";
 
-    public static final String CQ_USER = "cq:User";
     public static final String CQ_PAGE = "cq:Page";
     public static final String CQ_PAGE_CONTENT = "cq:PageContent";
     public static final String CQ_TEMPLATE = "cq:template";
@@ -53,5 +52,6 @@ public class Constants {
     public static class ERROR {
         public static final String ACCOUNT_EXISTS = "This account already exists.";
         public static final String WRONG_CREDENTIALS = "Wrong username or password.";
+        public static final String CREDENTIALS_LENGTH = "Wrong length of username or password";
     }
 }

@@ -7,5 +7,6 @@ import java.util.Iterator;
 public interface TicketInfoModel {
 
     Iterator<Page> getPagesList();
+    Iterator<Page> getPagesSortedByTitle();
 
 }

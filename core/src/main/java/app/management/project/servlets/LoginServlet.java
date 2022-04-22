@@ -2,6 +2,7 @@ package app.management.project.servlets;
 
 import app.management.project.beans.User;
 import app.management.project.dao.impl.UserDAOImpl;
+import app.management.project.exceptions.CredentialsException;
 import app.management.project.exceptions.ValidationException;
 import app.management.project.utils.UserUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -30,12 +31,15 @@ public class LoginServlet extends SlingAllMethodsServlet {
         final String linkToRedirect = request.getScheme() + COLON_WITH_TWO_SLASHES + request.getServerName()
                 + COLON + request.getServerPort();
         try {
+            if ( (username.length() < 3 || username.length() > 15) || (password.length() < 6 || password.length() > 18) ) {
+                throw new CredentialsException(ERROR.CREDENTIALS_LENGTH);
+            }
             UserDAOImpl userDAO = new UserDAOImpl();
             Optional<User> optUser = userDAO.getUser(username, password);
             User user = optUser.orElseThrow(() -> new ValidationException(ERROR.WRONG_CREDENTIALS));
 
             UserUtils.setCurrentUser(username, request);
-        } catch (ValidationException | RepositoryException e) {
+        } catch (ValidationException | RepositoryException | CredentialsException e) {
             response.sendRedirect(linkToRedirect + CONTENT_ERROR + HTML + QUESTION_MARK + ERROR_PARAM + e.getMessage());
         }
         response.sendRedirect(linkToRedirect + CONTENT_HOME + HTML);
