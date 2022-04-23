@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(SQL.USERNAME_COLUMN, username);
             try(ResultSet rs = ps.executeQuery()){
                 while(rs.next()) {
-                    optUser = Optional.of(new User(rs.getString(SQL.USERNAME_COLUMN), StringUtils.EMPTY));
+                    optUser = Optional.of(new User(rs.getString(SQL.USERNAME_COLUMN), null, StringUtils.EMPTY));
                 }
             }
             return optUser;
@@ -48,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(SQL.PASSWORD_COLUMN, password);
             try(ResultSet rs = ps.executeQuery()){
                 while(rs.next()) {
-                    optUser = Optional.of(new User(rs.getString(SQL.USERNAME_COLUMN), rs.getString(SQL.PASSWORD_COLUMN)));
+                    optUser = Optional.of(new User(rs.getString(SQL.USERNAME_COLUMN), null, rs.getString(SQL.PASSWORD_COLUMN)));
                 }
             }
             return optUser;
@@ -68,7 +68,7 @@ public class UserDAOImpl implements UserDAO {
                 synchronized (this) {
                     ps.executeUpdate();
                 }
-                user = Optional.of(new User(username, password));
+                user = Optional.of(new User(username, null, password));
             }
             else {
                 user = Optional.empty();

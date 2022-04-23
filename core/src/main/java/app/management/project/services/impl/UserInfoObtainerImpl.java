@@ -38,4 +38,15 @@ public class UserInfoObtainerImpl implements UserInfoObtainer {
         }
         return null;
     }
+
+    @Override
+    public String getRole() {
+        try {
+            ResourceResolver resourceResolver = ResolverUtil.newResolver(resourceResolverFactory);
+            return UserUtils.getCurrentUsersRole(resourceResolver);
+        } catch (LoginException | RepositoryException e) {
+            log.error(e.getMessage());
+        }
+        return null;
+    }
 }

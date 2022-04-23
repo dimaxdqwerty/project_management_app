@@ -5,11 +5,16 @@ import app.management.project.utils.HWIDUtil;
 public class Constants {
     public static final String TICKET_NAME = "ticketName";
     public static final String SHORT_DESCRIPTION = "shortDescription";
+    public static final String USERNAMES = "usernames";
     public static final String TYPE = "type";
     public static final String RESOURCE_PATH = "resourcePath";
     public static final String USERNAME = "username";
+    public static final String ROLE = "role";
     public static final String PASSWORD = "password";
     public static final String USER = "user-" + HWIDUtil.getHWID();
+
+    public static final String DEVELOPER_ROLE = "Developer";
+    public static final String LEADER_ROLE = "Leader";
 
     public static final String ASSET_SHARE_COMMONS_PAGE = "asset-share-commons/components/structure/page";
     public static final String ASSET_SHARE_COMMONS_EMPTY_TEMPLATE_DARK =
@@ -34,6 +39,7 @@ public class Constants {
     public static final String QUESTION_MARK = "?";
     public static final String COLON_WITH_TWO_SLASHES = "://";
     public static final String HTML = ".html";
+    public static final String USERNAMES_SPLITTER = ", ";
 
     public static final String ERROR_PARAM = "error=";
 

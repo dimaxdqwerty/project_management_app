@@ -20,6 +20,11 @@ public class UserInfoModelImpl implements UserInfoModel {
         return userInfoObtainer.getUsername();
     }
 
+    @Override
+    public String getRole() {
+        return userInfoObtainer.getRole();
+    }
+
     @PostConstruct
     protected void init() {}
 }

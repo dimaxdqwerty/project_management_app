@@ -38,7 +38,7 @@ public class LoginServlet extends SlingAllMethodsServlet {
             Optional<User> optUser = userDAO.getUser(username, password);
             User user = optUser.orElseThrow(() -> new ValidationException(ERROR.WRONG_CREDENTIALS));
 
-            UserUtils.setCurrentUser(username, request);
+            UserUtils.setCurrentUser(username, DEVELOPER_ROLE, request);
         } catch (ValidationException | RepositoryException | CredentialsException e) {
             response.sendRedirect(linkToRedirect + CONTENT_ERROR + HTML + QUESTION_MARK + ERROR_PARAM + e.getMessage());
         }

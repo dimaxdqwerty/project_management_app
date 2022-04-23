@@ -6,7 +6,7 @@
 
 <div class="user-menu-container">
     <div data-sly-test.isRegistered="${model.username}">
-        <p>User: ${model.username}</p>
+        <p>User: ${model.username} | ${model.role}</p>
         <a href="${scheme}://${servername}:${serverport}/bin/logout">Log Out</a>
     </div>
     <div data-sly-test="${!isRegistered}">

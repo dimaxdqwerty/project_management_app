@@ -3,10 +3,12 @@ package app.management.project.beans;
 public class User {
 
     private String username;
+    private String role;
     private String password;
 
-    public User(String username, String password) {
+    public User(String username, String role,  String password) {
         this.username = username;
+        this.role = role;
         this.password = password;
     }
 

@@ -35,8 +35,9 @@ public class CreateTicketServlet extends SlingAllMethodsServlet {
             final String ticketName = request.getParameter(TICKET_NAME);
             final String type = request.getParameter(TYPE);
             final String shortDescription = request.getParameter(SHORT_DESCRIPTION);
+            final String usernames = request.getParameter(USERNAMES);
 
-            Ticket ticket = new Ticket(ticketName, shortDescription, type);
+            Ticket ticket = new Ticket(ticketName, shortDescription, type, usernames);
 
             createTicketPageNode(resourceResolver, ticket);
 
@@ -69,6 +70,7 @@ public class CreateTicketServlet extends SlingAllMethodsServlet {
         jcrContentUnderPageNode.setProperty(SHORT_DESCRIPTION, ticket.getShortDescription());
         jcrContentUnderPageNode.setProperty(TYPE, ticket.getType());
         jcrContentUnderPageNode.setProperty(CQ_TEMPLATE, ASSET_SHARE_COMMONS_EMPTY_TEMPLATE_DARK);
+        jcrContentUnderPageNode.setProperty(USERNAMES, ticket.getUsernames());
 
         resourceResolver.commit();
     }

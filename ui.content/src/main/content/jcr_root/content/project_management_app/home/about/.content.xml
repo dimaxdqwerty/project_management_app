@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-04-03T11:39:28.856+03:00"
+        cq:lastModified="{Date}2022-04-21T18:16:24.982+03:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/asset-share-commons/settings/wcm/templates/content-rail-template-dark"
         jcr:primaryType="cq:PageContent"
@@ -34,7 +34,17 @@
                     jcr:lastModified="{Date}2017-10-17T12:45:31.994-04:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                    sling:resourceType="wcm/foundation/components/responsivegrid">
+                    <text
+                        jcr:created="{Date}2022-04-21T18:12:56.518+03:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2022-04-21T18:16:24.978+03:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="asset-share-commons/components/content/text"
+                        text="&lt;p>This project is for managing project. You can create tickets where you can describe type of task, short description and etc.&lt;/p>&#xa;&lt;p>You can check this project on github:&amp;nbsp;&lt;a href=&quot;https://github.com/dimaxdqwerty/project_management_app&quot; target=&quot;_blank&quot;>https://github.com/dimaxdqwerty/project_management_app&lt;/a>&lt;/p>&#xa;"
+                        textIsRich="true"/>
+                </responsivegrid>
                 <header
                     jcr:created="{Date}2017-10-17T12:43:54.861-04:00"
                     jcr:createdBy="admin"

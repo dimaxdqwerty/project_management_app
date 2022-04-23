@@ -1,3 +1,16 @@
+<div data-sly-use.userModel="app.management.project.models.UserInfoModel"></div>
 <h1>${currentPage.title}</h1>
 <p>${pageProperties.type}</p>
-<p></p>
+<h4 data-sly-list.username="${pageProperties.usernames}">
+    <sly data-sly-test.isNotCurrentUser="${userModel.username != username}"
+         data-sly-test.isNotLastUsername="${!usernameList.last}">
+        ${username},
+    </sly>
+    <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
+    <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+    <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
+</h4>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='ticket-viewer.main'}" />
+</sly>

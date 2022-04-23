@@ -1,46 +1,48 @@
-<div data-sly-use.getOption="getOption.js"></div>
-
 <div data-sly-use.model="${'app.management.project.models.TicketInfoModel'}"></div>
+<div data-sly-use.userModel="app.management.project.models.UserInfoModel"></div>
 
 <h1 style="text-align: center">Tickets</h1>
 
 <div class="sort sort-dark">
-    <select id="option" class="sort-select">
-        <option value="title">By Title</option>
-        <option value="date">By Date</option>
+    <select data-sly-list.list="${model.types}" id="type" class="sort-select">
+        <option value="${list.toLowerCase}">${list}</option>
     </select>
 </div>
 <div class="sort sort-dark">
-    <select id="descasc" class="sort-select">
-        <option value="descending">Descending</option>
-        <option value="ascending">Ascending</option>
+    <select data-sly-list.list="${model.orders}" id="order" class="sort-select">
+        <option value="${list.toLowerCase}">${list}</option>
     </select>
 </div>
-<div class="sort sort-dark">
-    <select id="type" class="sort-select">
-        <option value="title">Everything</option>
-        <option value="tasks">Only Tasks</option>
-        <option value="bugs">Only Bugs</option>
-        <option value="subtasks">Only Subtasks</option>
-    </select>
-</div>
+<button class="sortButton" id="sort">
+    <p>Sort</p>
+</button>
 
 <tickets>
-    <div class="container" data-sly-list.item="${model.pagesList}">
+    <div class="container" id="container" data-sly-list.item="${model.pagesList}">
         <div class="card">
             <div class="box">
                 <div class="content">
-                    <h2>${item.title}</h2>
-                    <h3>${item.properties.type}</h3>
+                    <h2 data-title=${item.title}></h2>
+                    <h3 data-type=${item.properties.type}></h3>
                     <p>${item.properties.shortDescription}</p>
                     <a href="${item.path}.html">Read More</a>
+                    <h4 data-sly-list.username="${item.properties.usernames}">
+                        <sly data-sly-test.isNotCurrentUser="${userModel.username != username}"
+                             data-sly-test.isNotLastUsername="${!usernameList.last}">
+                            ${username},
+                        </sly>
+                        <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
+                        <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+                        <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
+                    </h4>
                 </div>
             </div>
         </div>
     </div>
 </tickets>
+
 <div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Ticket Container"></div>
-<button class="showMore" id="showMore">
+<button class="showMoreButton" id="showMore">
     <p>Show more</p>
 </button>
 

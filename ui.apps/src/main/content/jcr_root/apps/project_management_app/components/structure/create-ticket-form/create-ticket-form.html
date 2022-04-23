@@ -1,4 +1,6 @@
-<div>
+<div data-sly-use.model="app.management.project.models.UserInfoModel"></div>
+
+<div data-sly-test.isLeader="${model.role == 'Leader'}">
   <form method="post" action="/bin/createTicket">
       <input name="resourcePath" type="hidden" value="${currentPage.getPath}" />
       <label>Ticket Name*</label>
@@ -11,9 +13,16 @@
           <option value="Subtask">Subtask</option>
           <option value="Bug">Bug</option>
       </select>
+      <label>Username of users who will work with ticket*</label>
+      <p>Format: usernames#1, usernames#2, usernames#3</p>
+      <input name="usernames" type="text" required>
       <label>* - required fields</label>
       <input type="submit" value="Submit" />
   </form>
+</div>
+<div data-sly-test="${!isLeader}">
+    <h1>You have no permission to create ticket!
+        Only Leader can create tickets.</h1>
 </div>
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
 	<sly data-sly-call="${clientlib.all @ categories='create-ticket-form.main'}" />

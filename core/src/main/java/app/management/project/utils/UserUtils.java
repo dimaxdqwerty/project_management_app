@@ -18,7 +18,7 @@ public class UserUtils {
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
 
-    public static void setCurrentUser(final String username, final SlingHttpServletRequest request) throws RepositoryException, PersistenceException {
+    public static void setCurrentUser(final String username, final String role, final SlingHttpServletRequest request) throws RepositoryException, PersistenceException {
         ResourceResolver resourceResolver = request.getResourceResolver();
         Resource resource = resourceResolver.getResource(CONTENT_PROJECT_MANAGEMENT_APP);
 
@@ -33,6 +33,7 @@ public class UserUtils {
             jcrContentUnderCurrentUserNode = currentUserNode.addNode(JCR_CONTENT, CQ_PAGE_CONTENT);
         }
         jcrContentUnderCurrentUserNode.setProperty(USERNAME, username);
+        jcrContentUnderCurrentUserNode.setProperty(ROLE, role);
         resourceResolver.commit();
     }
 
@@ -41,6 +42,13 @@ public class UserUtils {
         Node node = resource.adaptTo(Node.class);;
         Property username = node.getProperty(USERNAME);
         return username.getString();
+    }
+
+    public static String getCurrentUsersRole(final ResourceResolver resourceResolver) throws RepositoryException {
+        Resource resource = resourceResolver.getResource(CONTENT_USER_JCR);
+        Node node = resource.adaptTo(Node.class);;
+        Property role = node.getProperty(ROLE);
+        return role.getString();
     }
 
     public static void deleteCurrentUser(final SlingHttpServletRequest request) throws RepositoryException, PersistenceException {
