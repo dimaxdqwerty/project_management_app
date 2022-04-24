@@ -1,6 +1,5 @@
 package app.management.project.utils;
 
-import app.management.project.servlets.RegisterServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

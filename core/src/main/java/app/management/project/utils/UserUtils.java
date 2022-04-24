@@ -55,7 +55,9 @@ public class UserUtils {
         ResourceResolver resourceResolver = request.getResourceResolver();
         Resource resource = resourceResolver.getResource(CONTENT_USER);
         Node node = resource.adaptTo(Node.class);
-        node.remove();
+        Node jcrContentUnderCurrentUserNode = node.getNode(JCR_CONTENT);
+        jcrContentUnderCurrentUserNode.getProperty(USERNAME).remove();
+        jcrContentUnderCurrentUserNode.getProperty(ROLE).remove();
         resourceResolver.commit();
     }
 

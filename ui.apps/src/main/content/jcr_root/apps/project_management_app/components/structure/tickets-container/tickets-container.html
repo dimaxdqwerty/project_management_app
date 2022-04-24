@@ -22,6 +22,7 @@
         <div class="card">
             <div class="box">
                 <div class="content">
+                    <h5>${item.properties.status}</h5>
                     <h2 data-title=${item.title}></h2>
                     <h3 data-type=${item.properties.type}></h3>
                     <p>${item.properties.shortDescription}</p>
@@ -31,8 +32,8 @@
                              data-sly-test.isNotLastUsername="${!usernameList.last}">
                             ${username},
                         </sly>
-                        <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
-                        <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+                        <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+                        <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
                         <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
                     </h4>
                 </div>

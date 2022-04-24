@@ -1,0 +1,22 @@
+<div data-sly-use.model="${'app.management.project.models.TicketInfoModel'}"></div>
+<div data-sly-use.userModel="app.management.project.models.UserInfoModel"></div>
+
+<div data-sly-test.isLeader="${userModel.role == 'Leader'}">
+    <form  method="post" action="/bin/deleteTickets" data-sly-list.tickets="${model.pagesList}">
+        <input type="hidden" name="resourcePath" id="resourcePath" value="${currentPage.path}">
+        <p class="title">${tickets.title}</p>
+        <input class="checkbox" type="checkbox" name="${tickets.title}" id="${tickets.title}">
+        <hr class="divider">
+        <sly data-sly-test="${ticketsList.last}">
+            <input type="submit" value="Delete">
+        </sly>
+    </form>
+</div>
+<div data-sly-test="${!isLeader}">
+    <h1>You have no permission to delete tickets!
+        Only Leader can create tickets.</h1>
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='delete-tickets.main'}" />
+</sly>

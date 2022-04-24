@@ -2,7 +2,7 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-04-23T16:14:03.581+03:00"
+        cq:lastModified="{Date}2022-04-24T15:04:40.305+03:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/asset-share-commons/settings/wcm/templates/content-rail-template-dark"
         jcr:primaryType="cq:PageContent"
@@ -67,7 +67,7 @@
                         types="[Everything,Tasks,Subtasks,Bugs]"/>
                 </responsivegrid>
                 <header
-                    jcr:lastModified="{Date}2022-04-03T11:39:00.327+03:00"
+                    jcr:lastModified="{Date}2022-04-24T15:04:40.183+03:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="asset-share-commons/components/structure/header"
@@ -81,6 +81,10 @@
                             jcr:primaryType="nt:unstructured"
                             path="/content/project_management_app/home/about"
                             text="About"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            path="/content/project_management_app/home/users"
+                            text="Users"/>
                     </pages>
                 </header>
             </main>
@@ -93,4 +97,6 @@
     <registration/>
     <login/>
     <user-profile/>
+    <delete-tickets/>
+    <users/>
 </jcr:root>

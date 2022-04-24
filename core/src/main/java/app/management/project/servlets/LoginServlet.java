@@ -31,14 +31,15 @@ public class LoginServlet extends SlingAllMethodsServlet {
         final String linkToRedirect = request.getScheme() + COLON_WITH_TWO_SLASHES + request.getServerName()
                 + COLON + request.getServerPort();
         try {
-            if ( (username.length() < 3 || username.length() > 15) || (password.length() < 6 || password.length() > 18) ) {
+            if ( (username.length() < 3 || username.length() > 15) || (password.length() < 3 || password.length() > 18) ) {
                 throw new CredentialsException(ERROR.CREDENTIALS_LENGTH);
             }
             UserDAOImpl userDAO = new UserDAOImpl();
             Optional<User> optUser = userDAO.getUser(username, password);
             User user = optUser.orElseThrow(() -> new ValidationException(ERROR.WRONG_CREDENTIALS));
 
-            UserUtils.setCurrentUser(username, DEVELOPER_ROLE, request);
+            String role = userDAO.getUserRole(username);
+            UserUtils.setCurrentUser(username, role, request);
         } catch (ValidationException | RepositoryException | CredentialsException e) {
             response.sendRedirect(linkToRedirect + CONTENT_ERROR + HTML + QUESTION_MARK + ERROR_PARAM + e.getMessage());
         }

@@ -2,3 +2,7 @@
     text-shadow: red 1px 1px 0, red -1px -1px 0,
     red -1px 1px 0, red 1px -1px 0;
 }
+.divider {
+    border: 0;
+    border-top: 1px solid;
+}

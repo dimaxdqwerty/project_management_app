@@ -33,12 +33,13 @@
             </main>
         </root>
     </jcr:content>
-    <Create_x0020_registration/>
-    <Create_x0020_login/>
-    <Create_x0020_tickets_x0020_deleting/>
-    <test/>
-    <dfgdsg/>
-    <_x0031_/>
-    <vxcv/>
-    <aaaaa/>
+    <Create_x0020_change_x0020_status/>
+    <Create_x0020_ticket_x0020_deletion_x0020_system/>
+    <Create_x0020_page_x0020_where_x0020_all_x0020_users_x0020_stored/>
+    <Fix_x0020_problem_x0020_with_x0020_roles/>
+    <Improve_x0020_some_x0020_designes/>
+    <Investigate_x0020_what_x0020_to_x0020_do/>
+    <Add_x0020_more_x0020_sorts/>
+    <Update_x0020_README.md/>
+    <Upload_x0020_packages_x0020_to_x0020_create_x0020_build_x0020_guide/>
 </jcr:root>

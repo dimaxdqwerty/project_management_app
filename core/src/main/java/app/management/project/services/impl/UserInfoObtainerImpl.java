@@ -1,5 +1,6 @@
 package app.management.project.services.impl;
 
+import app.management.project.dao.impl.UserDAOImpl;
 import app.management.project.services.UserInfoObtainer;
 import app.management.project.utils.ResolverUtil;
 import app.management.project.utils.UserUtils;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.RepositoryException;
+import java.util.Iterator;
 
 @Component(service = UserInfoObtainer.class, immediate = true)
 @ServiceDescription("Service to get info from user for user-menu component")
@@ -41,12 +43,16 @@ public class UserInfoObtainerImpl implements UserInfoObtainer {
 
     @Override
     public String getRole() {
-        try {
-            ResourceResolver resourceResolver = ResolverUtil.newResolver(resourceResolverFactory);
-            return UserUtils.getCurrentUsersRole(resourceResolver);
-        } catch (LoginException | RepositoryException e) {
-            log.error(e.getMessage());
-        }
-        return null;
+        return new UserDAOImpl().getUserRole(getUsername());
+    }
+
+    @Override
+    public Iterator<String> getAllUsernames() {
+        return new UserDAOImpl().getAllUsernames();
+    }
+
+    @Override
+    public Iterator<String> getAllRoles() {
+        return new UserDAOImpl().getAllRoles();
     }
 }

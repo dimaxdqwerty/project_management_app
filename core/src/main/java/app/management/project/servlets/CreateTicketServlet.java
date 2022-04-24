@@ -71,6 +71,7 @@ public class CreateTicketServlet extends SlingAllMethodsServlet {
         jcrContentUnderPageNode.setProperty(TYPE, ticket.getType());
         jcrContentUnderPageNode.setProperty(CQ_TEMPLATE, ASSET_SHARE_COMMONS_EMPTY_TEMPLATE_DARK);
         jcrContentUnderPageNode.setProperty(USERNAMES, ticket.getUsernames());
+        jcrContentUnderPageNode.setProperty(STATUS, NO_STATUS);
 
         resourceResolver.commit();
     }

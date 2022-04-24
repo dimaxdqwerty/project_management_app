@@ -1,15 +1,27 @@
 <div data-sly-use.userModel="app.management.project.models.UserInfoModel"></div>
-<h1>${currentPage.title}</h1>
-<p>${pageProperties.type}</p>
+<div>
+    <h1>${currentPage.title} (${pageProperties.status})</h1>
+    <h3>${pageProperties.type}</h3>
+</div>
+<hr class="divider">
 <h4 data-sly-list.username="${pageProperties.usernames}">
     <sly data-sly-test.isNotCurrentUser="${userModel.username != username}"
          data-sly-test.isNotLastUsername="${!usernameList.last}">
         ${username},
     </sly>
-    <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
-    <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+    <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
+    <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
     <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
 </h4>
+<div data-sly-list.username="${pageProperties.usernames}" hidden>
+    <sly data-sly-test.isAssignedToCurrentUser="${userModel.username == username}"></sly>
+</div>
+<form data-sly-test="${isAssignedToCurrentUser}" method="post" action="/bin/changeStatus">
+    <label>Change status: </label>
+    <input type="hidden" name="resourcePath" id="resourcePath" value="${currentPage.path}">
+    <input name="status" type="text"/>
+    <input type="submit" value="Submit" />
+</form>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${clientlib.all @ categories='ticket-viewer.main'}" />

@@ -1,0 +1,14 @@
+<div data-sly-use.model="app.management.project.models.UserInfoModel"></div>
+
+<h3>All users</h3>
+<div data-sly-list.usernames="${model.allUsersAndTheirsRoles}">
+    <p>${usernames}</p>
+</div>
+
+<form style="margin-top: 30px" data-sly-test="${model.role == 'Leader'}" method="post" action="/bin/giveRole">
+    <h3>Give to user role</h3>
+    <input type="hidden" name="resourcePath" id="resourcePath" value="${currentPage.path}">
+    <input name="username" type="text" placeholder="username" required/>
+    <input name="role" type="text" placeholder="role" required/>
+    <input type="submit" value="Give">
+</form>
