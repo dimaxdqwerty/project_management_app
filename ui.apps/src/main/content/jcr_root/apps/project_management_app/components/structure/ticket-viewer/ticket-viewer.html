@@ -5,18 +5,13 @@
 </div>
 <hr class="divider">
 <h4 data-sly-list.username="${pageProperties.usernames}">
-    <sly data-sly-test.isNotCurrentUser="${userModel.username != username}"
-         data-sly-test.isNotLastUsername="${!usernameList.last}">
-        ${username},
+    <sly data-sly-test.isNotCurrentUser="${userModel.username != username}">
+        ${username}
     </sly>
-    <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
-    <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
-    <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
+    <sly data-sly-test="${!isNotCurrentUser}"><span class="isCurrentUser">${username} </span></sly>
 </h4>
-<div data-sly-list.username="${pageProperties.usernames}" hidden>
-    <sly data-sly-test.isAssignedToCurrentUser="${userModel.username == username}"></sly>
-</div>
-<form data-sly-test="${isAssignedToCurrentUser}" method="post" action="/bin/changeStatus">
+
+<form data-sly-test="${userModel.username in pageProperties.usernames}" method="post" action="/bin/changeStatus">
     <label>Change status: </label>
     <input type="hidden" name="resourcePath" id="resourcePath" value="${currentPage.path}">
     <input name="status" type="text"/>

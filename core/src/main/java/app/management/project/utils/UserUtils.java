@@ -41,7 +41,8 @@ public class UserUtils {
         Resource resource = resourceResolver.getResource(CONTENT_USER_JCR);
         Node node = resource.adaptTo(Node.class);;
         Property username = node.getProperty(USERNAME);
-        return username.getString();
+        String test = username.getString();
+        return test;
     }
 
     public static String getCurrentUsersRole(final ResourceResolver resourceResolver) throws RepositoryException {

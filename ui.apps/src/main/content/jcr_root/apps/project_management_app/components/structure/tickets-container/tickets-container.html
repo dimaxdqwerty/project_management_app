@@ -28,13 +28,10 @@
                     <p>${item.properties.shortDescription}</p>
                     <a href="${item.path}.html">Read More</a>
                     <h4 data-sly-list.username="${item.properties.usernames}">
-                        <sly data-sly-test.isNotCurrentUser="${userModel.username != username}"
-                             data-sly-test.isNotLastUsername="${!usernameList.last}">
-                            ${username},
+                        <sly data-sly-test.isNotCurrentUser="${userModel.username != username}">
+                            ${username}
                         </sly>
-                        <sly data-sly-test="${!isNotCurrentUser && !isNotLastUsername}"><span class="isCurrentUser">${username}</span></sly>
-                        <sly data-sly-test="${!isNotCurrentUser && isNotLastUsername}"><span class="isCurrentUser">${username}, </span></sly>
-                        <sly data-sly-test="${!isNotLastUsername && isNotCurrentUser}">${username}</sly>
+                        <sly data-sly-test="${!isNotCurrentUser}"><span class="isCurrentUser">${username} </span></sly>
                     </h4>
                 </div>
             </div>

@@ -41,6 +41,7 @@ public class UserDAOImpl implements UserDAO {
         }
         return Optional.empty();
     }
+
     @Override
     public Optional<User> getUser(String username, String password) {
         try (Connection cn = DatabaseConnection.getConnection();
